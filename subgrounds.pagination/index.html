@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>subgrounds.pagination module &mdash; subgrounds 0.1.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/mystnb.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="next" title="subgrounds.plotly_wrappers module" href="../subgrounds.plotly_wrappers/" />
+    <link rel="prev" title="subgrounds.dataframe_utils module" href="../subgrounds.dataframe_utils/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../" class="icon icon-home"> subgrounds
+          </a>
+              <div class="version">
+                0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basics/">Subgrounds basics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules/">API reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../subgrounds/">subgrounds package</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../subgrounds/#subpackages">Subpackages</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../subgrounds/#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../subgrounds.client/">subgrounds.client module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../subgrounds.dash_wrappers/">subgrounds.dash_wrappers module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../subgrounds.dataframe_utils/">subgrounds.dataframe_utils module</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">subgrounds.pagination module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../subgrounds.plotly_wrappers/">subgrounds.plotly_wrappers module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../subgrounds.query/">subgrounds.query module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../subgrounds.schema/">subgrounds.schema module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../subgrounds.subgrounds/">subgrounds.subgrounds module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../subgrounds.transform/">subgrounds.transform module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../subgrounds.utils/">subgrounds.utils module</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../subgrounds/#module-subgrounds">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/">Examples</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../">subgrounds</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../modules/">subgrounds</a> &raquo;</li>
+          <li><a href="../subgrounds/">subgrounds package</a> &raquo;</li>
+      <li>subgrounds.pagination module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/subgrounds.pagination.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-subgrounds.pagination">
+<span id="subgrounds-pagination-module"></span><h1>subgrounds.pagination module<a class="headerlink" href="#module-subgrounds.pagination" title="Permalink to this headline"></a></h1>
+<p>Pagination module</p>
+<p>This module implements functions and data structures used to perform automatic
+pagination on user-specified Subgrounds GraphQL queries.</p>
+<p>Pagination is done in two steps:
+1. The input query is transformed such that every field selection in the query
+which yields a list of entities has:</p>
+<ol class="arabic simple">
+<li><p>An ordering (i.e.: <code class="docutils literal notranslate"><span class="pre">orderBy</span></code> and <code class="docutils literal notranslate"><span class="pre">orderDirection</span></code> are specified)</p></li>
+<li><p>A <code class="docutils literal notranslate"><span class="pre">first</span></code> argument set to the <code class="docutils literal notranslate"><span class="pre">firstN</span></code> variable</p></li>
+<li><p>A <code class="docutils literal notranslate"><span class="pre">skip</span></code> argument set to the <code class="docutils literal notranslate"><span class="pre">skipN</span></code> variable</p></li>
+<li><p>A <code class="docutils literal notranslate"><span class="pre">where</span></code> filter with the filter name derived from the ordering and the
+value being a variable named <code class="docutils literal notranslate"><span class="pre">lastOrderingValueN</span></code></p></li>
+</ol>
+<p>In other words, the query will be transformed in a form which allows Subgrounds
+to paginate automatically by simply setting the set of pagination variables
+(i.e.: <code class="docutils literal notranslate"><span class="pre">firstN</span></code>, <code class="docutils literal notranslate"><span class="pre">skipN</span></code> and <code class="docutils literal notranslate"><span class="pre">lastOrderingValueN</span></code>) to different
+values. Each field that requires pagination (i.e.: each field that yields a list)
+will have its own set of variables, hence the <code class="docutils literal notranslate"><span class="pre">N</span></code> post-fix.</p>
+<p>Example:
+The initial query</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>query {
+  items(
+    orderBy: timestamp,
+    orderDirection: desc,
+    first: 10000
+  ) {
+    foo
+  }
+}
+</pre></div>
+</div>
+<p>will be transformed to</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>query($first0: Int, $skip0: Int, $lastOrderingValue0: BigInt) {
+  items(
+    orderBy: timestamp,
+    orderDirection: desc,
+    first: $first0,
+    skip: $skip0,
+    where: {
+      timestamp_lt: $lastOrderingValue0
+    }
+  ) {
+    foo
+  }
+}
+</pre></div>
+</div>
+<p>As part of this step, a tree of PaginationNode objects is also created, which
+mirrors the selection tree of the initial query but only includes fields that
+require pagination.</p>
+<p>See <a class="reference internal" href="#subgrounds.pagination.PaginationNode" title="subgrounds.pagination.PaginationNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">PaginationNode</span></code></a>, <a class="reference internal" href="#subgrounds.pagination.preprocess_selection" title="subgrounds.pagination.preprocess_selection"><code class="xref py py-func docutils literal notranslate"><span class="pre">preprocess_selection()</span></code></a> and
+<a class="reference internal" href="#subgrounds.pagination.preprocess_document" title="subgrounds.pagination.preprocess_document"><code class="xref py py-func docutils literal notranslate"><span class="pre">preprocess_document()</span></code></a>.</p>
+<p>2. Using the PaginationNode tree, a &quot;cursor&quot; (ish) tree is initialized which
+provides a cursor that is used to iterate through the set of pagination arguments
+values (i.e.: <code class="docutils literal notranslate"><span class="pre">firstN</span></code>, <code class="docutils literal notranslate"><span class="pre">skipN</span></code>, <code class="docutils literal notranslate"><span class="pre">lastOrderingValueN</span></code>). This
+&quot;cursor&quot; maintains a pagination state for each of the pagination nodes in the
+pagination node tree that keeps track (amongst other things) of the number of
+entities queried for each list fields. The cursor is moved forward based on
+the response from the query executed with the variable values of the cursor's
+previous state.</p>
+<p>By looping through the &quot;cursor&quot; states until enough entities are queried, we can
+get a sequence of response data which, when merged, are equivalen to the initial
+request.</p>
+<p>See <a class="reference internal" href="#subgrounds.pagination.Cursor" title="subgrounds.pagination.Cursor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cursor</span></code></a>, <a class="reference internal" href="#subgrounds.pagination.trim_document" title="subgrounds.pagination.trim_document"><code class="xref py py-func docutils literal notranslate"><span class="pre">trim_document()</span></code></a> and <a class="reference internal" href="#subgrounds.pagination.paginate" title="subgrounds.pagination.paginate"><code class="xref py py-func docutils literal notranslate"><span class="pre">paginate()</span></code></a>.</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="subgrounds.pagination.PaginationError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">subgrounds.pagination.</span></span><span class="sig-name descname"><span class="pre">PaginationError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cursor</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#subgrounds.pagination.PaginationError" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">RuntimeError</span></code></a></p>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="subgrounds.pagination.PaginationNode">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">subgrounds.pagination.</span></span><span class="sig-name descname"><span class="pre">PaginationNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node_idx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_field</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first_value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip_value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_value_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inner=&lt;factory&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#subgrounds.pagination.PaginationNode" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Class representing the pagination config for a single GraphQL list field.</p>
+<dl class="field-list simple">
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="subgrounds.pagination.PaginationNode.node_idx">
+<span class="sig-name descname"><span class="pre">node_idx</span></span><a class="headerlink" href="#subgrounds.pagination.PaginationNode.node_idx" title="Permalink to this definition"></a></dt>
+<dd><p>Index of PaginationNode, used to label pagination arguments
+for this node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="subgrounds.pagination.PaginationNode.filter_field">
+<span class="sig-name descname"><span class="pre">filter_field</span></span><a class="headerlink" href="#subgrounds.pagination.PaginationNode.filter_field" title="Permalink to this definition"></a></dt>
+<dd><p>Name of the node's filter field, e.g.: if
+<code class="docutils literal notranslate"><span class="pre">filter_name</span></code> is <code class="docutils literal notranslate"><span class="pre">timestamp_gt</span></code>, then <a class="reference internal" href="#id1" title="subgrounds.pagination.PaginationNode.filter_field"><code class="xref py py-attr docutils literal notranslate"><span class="pre">filter_field</span></code></a>
+is <code class="docutils literal notranslate"><span class="pre">timestamp</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="subgrounds.pagination.PaginationNode.first_value">
+<span class="sig-name descname"><span class="pre">first_value</span></span><a class="headerlink" href="#subgrounds.pagination.PaginationNode.first_value" title="Permalink to this definition"></a></dt>
+<dd><p>Initial value of the <code class="docutils literal notranslate"><span class="pre">first</span></code> argument</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="subgrounds.pagination.PaginationNode.skip_value">
+<span class="sig-name descname"><span class="pre">skip_value</span></span><a class="headerlink" href="#subgrounds.pagination.PaginationNode.skip_value" title="Permalink to this definition"></a></dt>
+<dd><p>Initial value of the <code class="docutils literal notranslate"><span class="pre">skip</span></code> argument</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="subgrounds.pagination.PaginationNode.filter_value">
+<span class="sig-name descname"><span class="pre">filter_value</span></span><a class="headerlink" href="#subgrounds.pagination.PaginationNode.filter_value" title="Permalink to this definition"></a></dt>
+<dd><p>Initial value of the filter argument
+(i.e.: <code class="docutils literal notranslate"><span class="pre">where:</span> <span class="pre">{filter:</span> <span class="pre">FILTER_VALUE}</span></code>)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Any</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="subgrounds.pagination.PaginationNode.filter_value_type">
+<span class="sig-name descname"><span class="pre">filter_value_type</span></span><a class="headerlink" href="#subgrounds.pagination.PaginationNode.filter_value_type" title="Permalink to this definition"></a></dt>
+<dd><p>Type of the filter value</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../subgrounds.schema/#subgrounds.schema.TypeRef.T" title="subgrounds.schema.TypeRef.T">TypeRef.T</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="subgrounds.pagination.PaginationNode.key_path">
+<span class="sig-name descname"><span class="pre">key_path</span></span><a class="headerlink" href="#subgrounds.pagination.PaginationNode.key_path" title="Permalink to this definition"></a></dt>
+<dd><p>Location in the list field to which this pagination
+node refers to in the initial query</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)">list</a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)">str</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="subgrounds.pagination.PaginationNode.inner">
+<span class="sig-name descname"><span class="pre">inner</span></span><a class="headerlink" href="#subgrounds.pagination.PaginationNode.inner" title="Permalink to this definition"></a></dt>
+<dd><p>Nested pagination nodes (if any).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)">list</a>[<a class="reference internal" href="#subgrounds.pagination.PaginationNode" title="subgrounds.pagination.PaginationNode">PaginationNode</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">node_idx</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></em><a class="headerlink" href="#id0" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id1">
+<span class="sig-name descname"><span class="pre">filter_field</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></em><a class="headerlink" href="#id1" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id2">
+<span class="sig-name descname"><span class="pre">first_value</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></em><a class="headerlink" href="#id2" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id3">
+<span class="sig-name descname"><span class="pre">skip_value</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></em><a class="headerlink" href="#id3" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id4">
+<span class="sig-name descname"><span class="pre">filter_value</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Any</span></em><a class="headerlink" href="#id4" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id5">
+<span class="sig-name descname"><span class="pre">filter_value_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../subgrounds.schema/#subgrounds.schema.TypeRef.T" title="subgrounds.schema.TypeRef.T"><span class="pre">subgrounds.schema.TypeRef.T</span></a></em><a class="headerlink" href="#id5" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id6">
+<span class="sig-name descname"><span class="pre">key_path</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#id6" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id7">
+<span class="sig-name descname"><span class="pre">inner</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#subgrounds.pagination.PaginationNode" title="subgrounds.pagination.PaginationNode"><span class="pre">subgrounds.pagination.PaginationNode</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#id7" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="subgrounds.pagination.PaginationNode.variable_definitions">
+<span class="sig-name descname"><span class="pre">variable_definitions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#subgrounds.pagination.PaginationNode.variable_definitions" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a list of variable definitions corresponding to this pagination
+node's pagination arguments as well as the variable definitions related
+to any nested pagination nodes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>self</strong> (<a class="reference internal" href="#subgrounds.pagination.PaginationNode" title="subgrounds.pagination.PaginationNode"><em>PaginationNode</em></a>) -- The current PaginationNode</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>_description_</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)">list</a>[<a class="reference internal" href="../subgrounds.query/#subgrounds.query.VariableDefinition" title="subgrounds.query.VariableDefinition">VariableDefinition</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="subgrounds.pagination.preprocess_selection">
+<span class="sig-prename descclassname"><span class="pre">subgrounds.pagination.</span></span><span class="sig-name descname"><span class="pre">preprocess_selection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">schema</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">select</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">counter</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#subgrounds.pagination.preprocess_selection" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a tuple <code class="docutils literal notranslate"><span class="pre">(select_,</span> <span class="pre">node)</span></code> where <code class="docutils literal notranslate"><span class="pre">select_</span></code> is the same
+selection tree as <code class="docutils literal notranslate"><span class="pre">select</span></code> except it has been normalized for pagination
+and <code class="docutils literal notranslate"><span class="pre">node</span></code> is a <a class="reference internal" href="#subgrounds.pagination.PaginationNode" title="subgrounds.pagination.PaginationNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">PaginationNode</span></code></a> tree containing all pagination
+metadata for each selection in <code class="docutils literal notranslate"><span class="pre">select</span></code> yielding a list of entities.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>schema</strong> (<a class="reference internal" href="../subgrounds.schema/#subgrounds.schema.SchemaMeta" title="subgrounds.schema.SchemaMeta"><em>SchemaMeta</em></a>) -- _description_</p></li>
+<li><p><strong>select</strong> (<a class="reference internal" href="../subgrounds.query/#subgrounds.query.Selection" title="subgrounds.query.Selection"><em>Selection</em></a>) -- _description_</p></li>
+<li><p><strong>key_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>]</em>) -- _description_</p></li>
+<li><p><strong>counter</strong> (<em>count</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>]</em>) -- _description_</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>_description_</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Tuple[<a class="reference internal" href="../subgrounds.query/#subgrounds.query.Selection" title="subgrounds.query.Selection">Selection</a>, <a class="reference internal" href="#subgrounds.pagination.PaginationNode" title="subgrounds.pagination.PaginationNode">PaginationNode</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="subgrounds.pagination.preprocess_document">
+<span class="sig-prename descclassname"><span class="pre">subgrounds.pagination.</span></span><span class="sig-name descname"><span class="pre">preprocess_document</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">schema</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">document</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#subgrounds.pagination.preprocess_document" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="subgrounds.pagination.Cursor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">subgrounds.pagination.</span></span><span class="sig-name descname"><span class="pre">Cursor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">page_node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="s"><span class="pre">'PaginationNode'</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="s"><span class="pre">'None'</span></span></span></span><a class="headerlink" href="#subgrounds.pagination.Cursor" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="field-list simple">
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="subgrounds.pagination.Cursor.inner_idx">
+<span class="sig-name descname"><span class="pre">inner_idx</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#subgrounds.pagination.Cursor.inner_idx" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="subgrounds.pagination.Cursor.filter_value">
+<span class="sig-name descname"><span class="pre">filter_value</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Any</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#subgrounds.pagination.Cursor.filter_value" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="subgrounds.pagination.Cursor.queried_entities">
+<span class="sig-name descname"><span class="pre">queried_entities</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#subgrounds.pagination.Cursor.queried_entities" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="subgrounds.pagination.Cursor.stop">
+<span class="sig-name descname"><span class="pre">stop</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#subgrounds.pagination.Cursor.stop" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="subgrounds.pagination.Cursor.page_count">
+<span class="sig-name descname"><span class="pre">page_count</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#subgrounds.pagination.Cursor.page_count" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="subgrounds.pagination.Cursor.keys">
+<span class="sig-name descname"><span class="pre">keys</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set" title="(in Python v3.10)"><span class="pre">set</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#subgrounds.pagination.Cursor.keys" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="subgrounds.pagination.Cursor.page_node">
+<span class="sig-name descname"><span class="pre">page_node</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#subgrounds.pagination.PaginationNode" title="subgrounds.pagination.PaginationNode"><span class="pre">subgrounds.pagination.PaginationNode</span></a></em><a class="headerlink" href="#subgrounds.pagination.Cursor.page_node" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="subgrounds.pagination.Cursor.inner">
+<span class="sig-name descname"><span class="pre">inner</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#subgrounds.pagination.Cursor" title="subgrounds.pagination.Cursor"><span class="pre">subgrounds.pagination.Cursor</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#subgrounds.pagination.Cursor.inner" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="subgrounds.pagination.Cursor.is_leaf">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_leaf</span></span><a class="headerlink" href="#subgrounds.pagination.Cursor.is_leaf" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="subgrounds.pagination.Cursor.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#subgrounds.pagination.Cursor.update" title="Permalink to this definition"></a></dt>
+<dd><p>Moves <code class="docutils literal notranslate"><span class="pre">self</span></code> cursor forward according to previous response data <code class="docutils literal notranslate"><span class="pre">data</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) -- Previous response data</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#StopIteration" title="(in Python v3.10)"><strong>StopIteration</strong></a> -- _description_</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="subgrounds.pagination.Cursor.step">
+<span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#subgrounds.pagination.Cursor.step" title="Permalink to this definition"></a></dt>
+<dd><p>Updates either <code class="docutils literal notranslate"><span class="pre">self</span></code> cursor or inner state machine depending on
+whether the inner state machine has reached its limit</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) -- _description_</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="subgrounds.pagination.Cursor.args">
+<span class="sig-name descname"><span class="pre">args</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#subgrounds.pagination.Cursor.args" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the pagination arguments for the current state of the state machine</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>_description_</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)">dict</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="subgrounds.pagination.Cursor.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#subgrounds.pagination.Cursor.reset" title="Permalink to this definition"></a></dt>
+<dd><p>Reset state machine</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="subgrounds.pagination.trim_document">
+<span class="sig-prename descclassname"><span class="pre">subgrounds.pagination.</span></span><span class="sig-name descname"><span class="pre">trim_document</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">document</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pagination_args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#subgrounds.pagination.trim_document" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a new Document containing only the selection subtrees of
+<code class="docutils literal notranslate"><span class="pre">document</span></code> whose arguments are present in <code class="docutils literal notranslate"><span class="pre">pagination_args</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>document</strong> (<a class="reference internal" href="../subgrounds.query/#subgrounds.query.Document" title="subgrounds.query.Document"><em>Document</em></a>) -- The GraphQL document to be trimmed based on provided
+arguments.</p></li>
+<li><p><strong>pagination_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>Any</em><em>]</em>) -- The pagination arguments</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>A new document containing only the selection subtrees of</dt><dd><p><code class="docutils literal notranslate"><span class="pre">document</span></code> for which the pagination arguments are set in
+<code class="docutils literal notranslate"><span class="pre">pagination_args</span></code>.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../subgrounds.query/#subgrounds.query.Document" title="subgrounds.query.Document">Document</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="subgrounds.pagination.merge">
+<span class="sig-prename descclassname"><span class="pre">subgrounds.pagination.</span></span><span class="sig-name descname"><span class="pre">merge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#subgrounds.pagination.merge" title="Permalink to this definition"></a></dt>
+<dd><p>Merges <code class="docutils literal notranslate"><span class="pre">data1</span></code> and <code class="docutils literal notranslate"><span class="pre">data2</span></code> and returns the combined result.</p>
+<p><code class="docutils literal notranslate"><span class="pre">data1</span></code> and <code class="docutils literal notranslate"><span class="pre">data2</span></code> must be of the same type. Either both are
+<code class="docutils literal notranslate"><span class="pre">dict</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code> or anything else.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data1</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a><em>[</em><em>Any</em><em>] </em><em>| </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>Any</em><em>] </em><em>| </em><em>Any</em>) -- First data blob</p></li>
+<li><p><strong>data2</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a><em>[</em><em>Any</em><em>] </em><em>| </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>Any</em><em>] </em><em>| </em><em>Any</em>) -- Second data blob</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Combined data blob</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)">list</a>[Any] | <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)">dict</a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)">str</a>, Any] | Any</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="subgrounds.pagination.paginate">
+<span class="sig-prename descclassname"><span class="pre">subgrounds.pagination.</span></span><span class="sig-name descname"><span class="pre">paginate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">schema</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">doc</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#subgrounds.pagination.paginate" title="Permalink to this definition"></a></dt>
+<dd><p>Executes the request document <cite>doc</cite> based on the GraphQL schema <cite>schema</cite> and returns
+the response as a JSON dictionary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>schema</strong> (<a class="reference internal" href="../subgrounds.schema/#subgrounds.schema.SchemaMeta" title="subgrounds.schema.SchemaMeta"><em>SchemaMeta</em></a>) -- The GraphQL schema on which the request document is based</p></li>
+<li><p><strong>doc</strong> (<a class="reference internal" href="../subgrounds.query/#subgrounds.query.Document" title="subgrounds.query.Document"><em>Document</em></a>) -- The request document</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The response data as a JSON dictionary</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)">dict</a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)">str</a>, Any]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="subgrounds.pagination.paginate_iter">
+<span class="sig-prename descclassname"><span class="pre">subgrounds.pagination.</span></span><span class="sig-name descname"><span class="pre">paginate_iter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">schema</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">doc</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#subgrounds.pagination.paginate_iter" title="Permalink to this definition"></a></dt>
+<dd><p>Executes the request document <cite>doc</cite> based on the GraphQL schema <cite>schema</cite> and returns
+the response as a JSON dictionary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>schema</strong> (<a class="reference internal" href="../subgrounds.schema/#subgrounds.schema.SchemaMeta" title="subgrounds.schema.SchemaMeta"><em>SchemaMeta</em></a>) -- The GraphQL schema on which the request document is based</p></li>
+<li><p><strong>doc</strong> (<a class="reference internal" href="../subgrounds.query/#subgrounds.query.Document" title="subgrounds.query.Document"><em>Document</em></a>) -- The request document</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The response data as a JSON dictionary</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)">dict</a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)">str</a>, Any]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../subgrounds.dataframe_utils/" class="btn btn-neutral float-left" title="subgrounds.dataframe_utils module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../subgrounds.plotly_wrappers/" class="btn btn-neutral float-right" title="subgrounds.plotly_wrappers module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
